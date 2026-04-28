@@ -60,6 +60,22 @@ pipeline {
                 '''
             }
         }
+
+        stage('Get External IP') {
+            steps {
+                sh '''
+                echo "Waiting for LoadBalancer IP..."
+                sleep 60
+
+                kubectl get svc flask-service
+
+                echo "----------------------------------"
+                echo "EXTERNAL IP (clean output):"
+                kubectl get svc flask-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+                echo ""
+                '''
+            }
+        }
     }
 
     post {
