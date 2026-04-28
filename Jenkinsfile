@@ -5,7 +5,7 @@ pipeline {
         REGISTRY = "krut0402.azurecr.io"
         IMAGE = "flask-app"
         IMAGE_TAG = "latest"
-        RESOURCE_GROUP = "devops-rg"
+        RESOURCE_GROUP = "Cnapp-RG"
         CLUSTER_NAME = "devops-aks"
     }
 
